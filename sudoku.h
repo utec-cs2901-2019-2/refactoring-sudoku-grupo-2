@@ -14,14 +14,14 @@ private:
 public:
 
 	sudoku(vvint tabla){
-		this->tabla = tabla
+		this->tabla = tabla;
 	}
 
-	void autoFill(vvint table){
+	void autoFill(vvint tabla){
 		srand (time(NULL));
 		for(size_t i=0; i<SZ; i++){
 			for(size_t j=0; j<SZ; j++){
-				if (rand()%3 == 0) table[i][j] = rand()%9;
+				if (rand()%3 == 0) tabla[i][j] = rand()%9;
 			}
 		}
 	}
@@ -32,7 +32,7 @@ public:
 
 	void display () {
 	    for (int i = 0; i < 9; ++i) {
-		for (int j = 0; j < 9; ++j {
+		for (int j = 0; j < 9; ++j) {
 		    if (i % 3) cout << "|  ";
 		    cout << tabla[i][j] << " ";
 		}
@@ -47,8 +47,8 @@ public:
 		check.empty();
 		check.resize(9);
 		for (int j = 0; j < 9; ++j) {
-		    if (check[table[i][j] - 1] == 1) return false;
-		    check[table[i][j] - 1] = 1;
+		    if (check[tabla[i][j] - 1] == 1) return false;
+		    check[tabla[i][j] - 1] = 1;
 		}
 		for (int j = 0; j < 9; ++j)
 		    if (check[j] != 1) return false;
@@ -58,8 +58,8 @@ public:
 		check.empty();
 		check.resize(9);
 		for (int j = 0; j < 9; ++j) {
-		    if (check[table[j][i] - 1] == 1) return false;
-		    check[table[j][i] - 1] = 1;
+		    if (check[tabla[j][i] - 1] == 1) return false;
+		    check[tabla[j][i] - 1] = 1;
 		}
 		for (int j = 0; j < 9; ++j)
 		    if (check[j] != 1) return false;
@@ -82,12 +82,12 @@ public:
 
 		for (int i = 0; i < 3; i++){
 		    for (int j = 0; j < 3; j++) {
-		        if (check[table[i + y_s][j + x_s] - 1] == 1) return false;
-		        check[table[i+ y_s][j + x_s] - 1] = 1;
+		        if (check[tabla[i + y_s][j + x_s] - 1] == 1) return false;
+		        check[tabla[i+ y_s][j + x_s] - 1] = 1;
 		    }
 		}
 	    }
 	    return true;
 	}
 
-}
+};

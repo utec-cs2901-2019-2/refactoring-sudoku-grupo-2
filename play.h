@@ -1,18 +1,19 @@
 #include "sudoku.h"
 
-class play{
+class play {
 public:
 	sudoku s;
 
-	play(){
+	play() {
 		int x, y;
+		s.autoFill();
+
 		while(!s.checkWin()){
-			s.autoFill();
 			s.display();
-			std::cin>>s.x>>s.y;
+			std::cin>>x>>y;
 			s.replace(s.tabla, x, y);
 		}
 	}
 
-}
+};
 
