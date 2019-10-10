@@ -35,10 +35,10 @@ public:
 	void display () {
 	    for (int i = 0; i < 9; ++i) {
 		for (int j = 0; j < 9; ++j) {
-		    if (i % 3) cout << "|  ";
+		    if (j % 3 == 0) cout << "\t|\t";
 		    cout << tabla[i][j] << " ";
 		}
-		if (i % 3) cout << "__";
+
 		cout << endl;
 	    }
 	}
@@ -46,7 +46,7 @@ public:
 	bool checkWin () {
 	    vector<int> check;
 	    for (int i = 0; i < 9; ++i) {
-		check.empty();
+		check.clear();
 		check.resize(9);
 		for (int j = 0; j < 9; ++j) {
 		    if (check[tabla[i][j] - 1] == 1) return false;
@@ -66,7 +66,7 @@ public:
 		for (int j = 0; j < 9; ++j)
 		    if (check[j] != 1) return false;
 	    }
-
+/*
 	    int x_s, y_s;
 	    for (int k = 0; k < 9; k++) {
 		check.empty();
@@ -88,7 +88,7 @@ public:
 		        check[tabla[i+ y_s][j + x_s] - 1] = 1;
 		    }
 		}
-	    }
+	    }*/
 	    return true;
 	}
 

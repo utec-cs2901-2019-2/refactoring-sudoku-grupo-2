@@ -2,18 +2,25 @@
 
 class play {
 public:
-	sudoku s;
+	sudoku *s;
 
 	play() {
-		int x, y, value;
-		s.autoFill();
+		s =  new sudoku();
+		s->autoFill();
 
-		while(!s.checkWin()){
-			s.display();
-			std::cin>>x>>y>> value;
-			s.replace(x, y, value);
-		}
+	
 	}
+
+
+	void execute () {
+	int x, y, value;
+	while(1){
+			s->display();
+			std::cin>>x>>y>> value;
+			s->replace(x, y, value);
+
+		}
+	}	
 
 };
 
