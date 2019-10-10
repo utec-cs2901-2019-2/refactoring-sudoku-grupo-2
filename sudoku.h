@@ -5,6 +5,8 @@
 #define vvint std::vector<vector<int>>
 #define SZ 9
 
+using namespace std;
+
 class sudoku{
 private:
 	vvint tabla;
@@ -24,10 +26,68 @@ public:
 		}
 	}
 
-	void display(){}
+	void replace (int x, int y, int value) {
+	    tabla[y][x] = value;
+	}
 
-	void replace(vvint table, int x, int y){}
+	void display () {
+	    for (int i = 0; i < 9; ++i) {
+		for (int j = 0; j < 9; ++j {
+		    if (i % 3) cout << "|  ";
+		    cout << tabla[i][j] << " ";
+		}
+		if (i % 3) cout << "__";
+		cout << endl;
+	    }
+	}
 
-	bool checkWin(){}
+	bool checkWin () {
+	    vector<int> check;
+	    for (int i = 0; i < 9; ++i) {
+		check.empty();
+		check.resize(9);
+		for (int j = 0; j < 9; ++j) {
+		    if (check[table[i][j] - 1] == 1) return false;
+		    check[table[i][j] - 1] = 1;
+		}
+		for (int j = 0; j < 9; ++j)
+		    if (check[j] != 1) return false;
+	    }
+	    
+	    for (int i = 0; i < 9; ++i) {
+		check.empty();
+		check.resize(9);
+		for (int j = 0; j < 9; ++j) {
+		    if (check[table[j][i] - 1] == 1) return false;
+		    check[table[j][i] - 1] = 1;
+		}
+		for (int j = 0; j < 9; ++j)
+		    if (check[j] != 1) return false;
+	    }
+
+	    int x_s, y_s;
+	    for (int k = 0; k < 9; k++) {
+		check.empty();
+		check.resize(9);
+		x_s = 0;
+		y_s = 0;
+		if (k % 3 == 0) 
+		    x_s = 3;
+		if (k % 3 == 1)
+		    x_s = 6;
+		if (k > 2)
+		    y_s = 3;
+		if (k > 5)
+		    y_s = 6;
+
+		for (int i = 0; i < 3; i++){
+		    for (int j = 0; j < 3; j++) {
+		        if (check[table[i + y_s][j + x_s] - 1] == 1) return false;
+		        check[table[i+ y_s][j + x_s] - 1] = 1;
+		    }
+		}
+	    }
+	    return true;
+	}
 
 }
