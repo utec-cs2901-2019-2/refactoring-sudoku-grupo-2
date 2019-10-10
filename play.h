@@ -18,7 +18,7 @@ public:
 			s->display();
 			std::cin>>x>>y>> value;
 			s->replace(x, y, value);
-
+	if (s->checkWin()) break;
 		}
 	}	
 
