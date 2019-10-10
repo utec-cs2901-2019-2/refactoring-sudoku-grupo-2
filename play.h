@@ -5,13 +5,13 @@ public:
 	sudoku s;
 
 	play() {
-		int x, y;
+		int x, y, value;
 		s.autoFill();
 
 		while(!s.checkWin()){
 			s.display();
-			std::cin>>x>>y;
-			s.replace(s.tabla, x, y);
+			std::cin>>x>>y>> value;
+			s.replace(x, y, value);
 		}
 	}
 

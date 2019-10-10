@@ -8,16 +8,18 @@
 using namespace std;
 
 class sudoku{
-private:
-	vvint tabla;
-
 public:
-
-	sudoku(vvint tabla){
-		this->tabla = tabla;
+	vvint tabla;
+	sudoku(){
+		for (int i = 0; i < 9; ++i) {
+		    tabla.resize(9);
+			for (int j = 0; j < 9; ++j)
+			    tabla[i].resize(9);
+		}
+		
 	}
 
-	void autoFill(vvint tabla){
+	void autoFill(){
 		srand (time(NULL));
 		for(size_t i=0; i<SZ; i++){
 			for(size_t j=0; j<SZ; j++){
